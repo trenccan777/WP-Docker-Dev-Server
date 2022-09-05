@@ -1,1 +1,1 @@
-# WPLS - Wordpress Lamp Server
+# WPDS- Wordpress Dev Server
