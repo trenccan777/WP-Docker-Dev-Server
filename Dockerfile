@@ -14,12 +14,16 @@ RUN apt-get update && apt-get install -y \
         libpng-dev \
         zlib1g-dev \
         libzip-dev \
+        libxml2-dev \
     && docker-php-ext-install -j$(nproc) iconv \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install mysqli \
     && docker-php-ext-install exif \
-    && docker-php-ext-install zip
+    && docker-php-ext-install zip\
+    && docker-php-ext-install soap
 
 EXPOSE 80
+
+
 
 
