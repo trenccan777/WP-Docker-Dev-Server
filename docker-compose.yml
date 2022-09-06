@@ -2,8 +2,9 @@ version: '3'
 
 services:
     wp:
+        image: wpds
         build: 
-          context: .
+          context: ./src
           dockerfile: Dockerfile
         depends_on: 
           - db
