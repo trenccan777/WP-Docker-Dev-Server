@@ -2,18 +2,27 @@ version: '3'
 
 services:
     wp:
-        image: wpds
+        image: wpdev:latest
         build: 
           context: ./src
           dockerfile: Dockerfile
-        depends_on: 
+        ports:
+          - ${IP}:80:80 # change ip if required
+        volumes:
+          - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
+          - ./wp-app:/var/www/html # Full wordpress project
+          #- ./plugin-name/trunk/:/var/www/html/wp-content/plugins/plugin-name # Plugin development
+          #- ./theme-name/trunk/:/var/www/html/wp-content/themes/theme-name # Theme development
+        environment:
+          WORDPRESS_DB_HOST: db
+          WORDPRESS_DB_NAME: "${DB_NAME}"
+          WORDPRESS_DB_USER: root
+          WORDPRESS_DB_PASSWORD: "${DB_ROOT_PASSWORD}"
+        depends_on:
           - db
         links:
           - db
-        volumes:
-          - ./wp-app:/var/www/html 
-        ports: 
-            - ${IP}:80:80 # change ip if required
+
     wpcli:
         image: wordpress:cli
         volumes:
