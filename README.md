@@ -1,8 +1,11 @@
 # WDDS - Wordpress Docker Dev Server
-This repo is custom build of the official [wordpress docker image](https://hub.docker.com/_/wordpress). 
+Easy WordPress development with Docker and Docker Compose.
 
-## Features
-Possibility to install custom PHP libraries and extensions by updating Dockerfile. 
+With this project you can quickly run custom Wordpress build from the official Wordpress image which gives you possibility to install custom PHP libraries and extensions by updating Dockerfile. In this particular repo is installed SoapClient. 
+
+- [Custom build from WordPress and WP CLI](https://hub.docker.com/_/wordpress/)
+- [phpMyAdmin](https://hub.docker.com/r/phpmyadmin/phpmyadmin/)
+- [MySQL](https://hub.docker.com/_/mysql/)
 
 ## Configuration
 
@@ -16,13 +19,16 @@ Open a terminal and `cd` to the folder in which `docker-compose.yml` is saved an
 docker-compose up -d
 ```
 
-### WP CLI
-
+## WP CLI
 alias for the CLI:
 
 ```
 alias wp="docker-compose run --rm wpcli"
 ```
+
+## phpMyAdmin
+You can also visit `http://127.0.0.1:8080` to access phpMyAdmin after starting the containers.
+The default username is `root`, and the password is the same as supplied in the `.env` file.
 
 ## Bash scripts
 
@@ -37,11 +43,5 @@ alias wp="docker-compose run --rm wpcli"
 ### Change user permissions for Ubuntu OS
 ```
 ./permissions.sh
-```
-
-### phpMyAdmin
-
-You can also visit `http://127.0.0.1:8080` to access phpMyAdmin after starting the containers.
-The default username is `root`, and the password is the same as supplied in the `.env` file.
-
+``
 
