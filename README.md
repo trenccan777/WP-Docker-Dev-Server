@@ -1,10 +1,9 @@
 # WDDS - Wordpress Docker Dev Server
-Easy WordPress development with Docker and Docker Compose based on great [WPDC repository](https://github.com/nezhar/wordpress-docker-compose)
+Easy WordPress development with Docker and Docker Compose based on  [WPDC repository](https://github.com/nezhar/wordpress-docker-compose)
 
 With this project you can quickly run custom Wordpress build from the official Wordpress image which gives you possibility to install custom PHP libraries and extensions by updating Dockerfile. In this particular repo is installed SoapClient.
 
-```
-```
+
 
 - [Custom build from WordPress and WP CLI](https://hub.docker.com/_/wordpress/)
 - [phpMyAdmin](https://hub.docker.com/r/phpmyadmin/phpmyadmin/)
