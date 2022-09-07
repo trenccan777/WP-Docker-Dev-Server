@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-    wp:
+    wpdev:
         image: wpdev:latest
         build: 
           context: ./src
@@ -14,10 +14,12 @@ services:
           #- ./plugin-name/trunk/:/var/www/html/wp-content/plugins/plugin-name # Plugin development
           #- ./theme-name/trunk/:/var/www/html/wp-content/themes/theme-name # Theme development
         environment:
-          WORDPRESS_DB_HOST: db
+          WORDPRESS_DB_HOST: "${DB_HOST}"
           WORDPRESS_DB_NAME: "${DB_NAME}"
-          WORDPRESS_DB_USER: root
+          WORDPRESS_DB_USER: "${DB_USER}"
           WORDPRESS_DB_PASSWORD: "${DB_ROOT_PASSWORD}"
+          WP_DEBUG: "${WP_DEBUG}"
+          WP_DEBUG_LOG: "${WP_DEBUG_LOG}"
         depends_on:
           - db
         links:
@@ -29,13 +31,13 @@ services:
           - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
           - ./wp-app:/var/www/html
         environment:
-          WORDPRESS_DB_HOST: db
+          WORDPRESS_DB_HOST:  "${DB_HOST}"
           WORDPRESS_DB_NAME: "${DB_NAME}"
           WORDPRESS_DB_USER: root
           WORDPRESS_DB_PASSWORD: "${DB_ROOT_PASSWORD}"
         depends_on:
           - db
-          - wp
+          - wpdev
     pma:
       image: phpmyadmin/phpmyadmin
       environment:
