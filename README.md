@@ -16,7 +16,17 @@ Open a terminal and `cd` to the folder in which `docker-compose.yml` is saved an
 docker-compose up
 ```
 
+## Bash scripts
 
+### MySQL dump
+```
+./export.sh
+```
+### MySQL import
+
+```
+./import.sh dbname.sql
+```
 
 
 
