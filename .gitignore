@@ -1,5 +1,5 @@
 wp-app/
-
+db_data/
 !wp-data/
 wp-data/*
 !wp-data/.gitkeep
