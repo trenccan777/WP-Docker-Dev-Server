@@ -27,6 +27,7 @@ services:
 
     wpcli:
         image: wordpress:cli
+        user: 1000:1000
         volumes:
           - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
           - ./wp-app:/var/www/html
